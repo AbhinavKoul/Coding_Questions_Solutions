@@ -5,10 +5,12 @@ using namespace std;
 bool IsUnique(string str)
 {
     int len = str.length();
+    //if greater than character limit, then dublicacy is obviosly there
     if(len > 128)
         return false;
     
-    bool char_set[128];
+    // initially everyone should be false for it to work!
+    static bool char_set[128];
 
     // going through characters in string
     for(int i =0; i<len;i++)
@@ -29,6 +31,11 @@ int main()
     string str = "abcdefghijklmnopqrst";
     bool x = IsUnique(str);
     if(x)
-        cout<<"hello";
+        cout<<"Everthing is distinct in the string " + str;
+    else
+        cout<<"Not distinct in the string " + str;
+    
+    cout<<endl;
+    
     return 0;
 }
