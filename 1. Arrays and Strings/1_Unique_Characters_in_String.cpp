@@ -16,6 +16,7 @@ bool IsUnique(string str)
         int val = str.at(i);
         // if already in string
         if(char_set[val])
+            return false;
         
         char_set[val] = true;
     }
