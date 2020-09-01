@@ -5,10 +5,13 @@ def isUnique(arr:str)->bool:
     Time Complexity   : O(n) WHERE n is length of string
     '''
     length = len(arr)
+    # if greater than character limit, then dublicacy is obviosly there
     if(length>128):
         return False
+    # map initialization
     char_set = {}
     for i in arr:
+        #check key in map
         if(i in char_set):
             return False
         char_set[i] = 1
@@ -25,14 +28,14 @@ def isUnique_BitVector(arr:str)->bool:
     Assume if character set is just from 'a' - 'z'.
     If more set, then we have to take diffirent data type rather than int    
     '''
-    checker = 0
+    checker = 0  # bit vector of int as it has a size of 32 and since we hae 26 characters we can use bit manipulation to set flags
 
     for i in arr:
-        val =ord(i) - ord('a')
-        if((checker & (1<<val)) > 0):
+        val = ord(i) - ord('a') # find shift from initial char 'a' to set that flag at that position
+        if((checker & (1<<val)) > 0): # shift left to location of character and compare with 0 bit and check if > 0  means checker also has 1 at that bit and thus already present
             return False
-        
-        checker |= (1<<val)
+        #update checker flag
+        checker |= (1<<val) # we do or here as we want to set/mask bit at that position(val) to 1 :- denoting that that char is present 
     
     return True
         
