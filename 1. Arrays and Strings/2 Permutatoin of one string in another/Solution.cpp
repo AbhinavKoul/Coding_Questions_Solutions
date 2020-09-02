@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string>
 #include<unordered_map>
+#define ul unordered_map
 using namespace std;
 
 bool checkPalin(string arr1,string arr2)
@@ -14,7 +15,7 @@ bool checkPalin(string arr1,string arr2)
         return false;
     
     //initialize unordered map
-    unordered_map<int,int> char_map;
+    ul<int,int> char_map;
 
     for(auto i:arr1)
         char_map[i] ++;
@@ -42,9 +43,7 @@ int main()
     if(res)
         cout<<"yes they are palindrome";
     else
-    {
         cout<<"they are not palindrome";
-    }
 
     return 0;
     
