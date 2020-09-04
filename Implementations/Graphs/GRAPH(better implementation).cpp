@@ -28,6 +28,37 @@ class Graph
         adjList[src].push_back(dest);  
     }
 
+    void DFSUtil(int u,vector<bool> &visited)
+    {
+        //make the current node as visited
+        visited[u] = true;
+        cout<< u << " ";
+        //go to all the connected nodes to current node
+        for(int i = 0;i<adjList[u].size();i++)
+        {
+            //check if the node connected to src node is connected or not
+            if(visited[adjList[u][i] == false])
+            {
+                //recursive call the fn for all the depth nodes    
+                DFSUtil(adjList[u][i],visited);
+            }
+        }
+    }
+
+    void DFS()
+    {   
+        // mark all nodes as non-visited
+        vector<bool> visited(N,false);
+        //go through each nodes
+        for(int u=0;u<N;u++)
+        {   
+            // if the current node is not still visited
+            if(visited[u] == false)
+                DFSUtil(u,visited);
+        }
+    }
+
+
     void print_graph()
     {
         for(int i=0;i<N;i++)
@@ -43,16 +74,17 @@ class Graph
 };
 int main()
 {
-    Graph g1(6,false);
+    Graph g1(5,false);
     g1.add_Edge(0,1);
+    g1.add_Edge(0,4);
     g1.add_Edge(1,2);
-    g1.add_Edge(2,0);
-    g1.add_Edge(3,2);
-    g1.add_Edge(2,1);
-    g1.add_Edge(4,5);
-    g1.add_Edge(5,4);
+    g1.add_Edge(1,3);
+    g1.add_Edge(1,4);
+    g1.add_Edge(2,3);
+    g1.add_Edge(3,4);
 
     g1.print_graph();
+    g1.DFS();
     //{0,1},{1,2},{2,0},{2,1},{3,2},{4,5},{5,4}
     return 0;
 }
