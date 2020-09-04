@@ -49,7 +49,6 @@ int main()
     g1.add_Edge(2,0);
     g1.add_Edge(3,2);
     g1.add_Edge(2,1);
-    g1.add_Edge(3,2);
     g1.add_Edge(4,5);
     g1.add_Edge(5,4);
 
