@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<queue>
 using namespace std;
 
 class Graph
@@ -50,7 +51,51 @@ class Graph
         //go through each nodes
         DFSUtil(V,visited);
     }
+    // prints all unvisited vertices directly connected to vertex V
+    void BFSUtil(int V,vector<bool> &visited)
+    {
+        
 
+        //create a queue for BFS
+        queue<int> Q;
+
+        // Mark the source node as visited and enqueue it 
+        visited[V] = true; 
+        Q.push(V);
+        // while queue is not empty
+        while(!Q.empty())
+        {   
+            //dequeue vertex from queue
+            int f = Q.front();
+            Q.pop();
+            //print the recently dequed vertex
+            cout<<f<<" ";
+
+            // Enqueue all adjacent of f and mark them visited
+            for(auto i : adjList[V])
+            {
+                if(!visited[i])
+                {
+                    Q.push(i);
+                    visited[i] = true;
+                }
+            }
+        }
+
+    }
+    //BFS transversal starting from a src node
+    void BFS(int src)
+    {
+        // mark all nodes as non-visited
+        vector<bool> visited(N,false);
+
+        for(int i = src;i<N;i++)
+        {
+            if(!visited[i])
+                BFSUtil(i,visited);
+        }
+        
+    }
 
     void print_graph()
     {
@@ -67,17 +112,20 @@ class Graph
 };
 int main()
 {
-    Graph g1(5);
+    Graph g1(7);
     g1.add_Edge(0,1);
-    g1.add_Edge(0,4);
-    g1.add_Edge(1,2);
+    g1.add_Edge(0,2);
     g1.add_Edge(1,3);
     g1.add_Edge(1,4);
-    g1.add_Edge(2,3);
-    g1.add_Edge(3,4);
+    g1.add_Edge(2,5);
+    g1.add_Edge(2,6);
 
     g1.print_graph();
-    g1.DFS(0);
+    // g1.DFS(0);
+    // cout<<endl;
+    // g1.DFS(2);
+    // cout<<endl;
+    g1.BFS(1);
     //{0,1},{1,2},{2,0},{2,1},{3,2},{4,5},{5,4}
     return 0;
 }
