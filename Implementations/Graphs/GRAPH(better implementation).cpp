@@ -89,7 +89,7 @@ class Graph
         // mark all nodes as non-visited
         vector<bool> visited(N,false);
 
-
+        // we only see all those nodes which are adjacent to the source node
         for(auto x: adjList[src])
         {
             if(!visited[x])
