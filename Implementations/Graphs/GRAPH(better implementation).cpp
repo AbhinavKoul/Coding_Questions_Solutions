@@ -89,10 +89,11 @@ class Graph
         // mark all nodes as non-visited
         vector<bool> visited(N,false);
 
-        for(int i = src;i<N;i++)
+
+        for(auto x: adjList[src])
         {
-            if(!visited[i])
-                BFSUtil(i,visited);
+            if(!visited[x])
+                BFSUtil(x,visited);
         }
         
     }
@@ -120,7 +121,7 @@ int main()
     g1.add_Edge(2,5);
     g1.add_Edge(2,6);
 
-    g1.print_graph();
+    //g1.print_graph();
     // g1.DFS(0);
     // cout<<endl;
     // g1.DFS(2);
