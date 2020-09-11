@@ -1,5 +1,8 @@
 '''
 USING RECURSIVE APPROACH
+
+Time Complexity:
+Space : 
 '''
 def resize_2D_matrix(l,n):
     '''
