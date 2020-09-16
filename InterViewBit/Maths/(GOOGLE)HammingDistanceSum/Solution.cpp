@@ -1,6 +1,31 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+/*
+    Time : O(N)
+*/
+int HammingSum_Efficient(vector<int> arr)
+{
+    int n = arr.size(),ans = 0,count;
+
+    //selecting one bit at a time
+    for(int i =0;i<32;i++)
+    {
+        // count how many values have 1 at that index
+        count = 0;
+        for(auto j : arr)
+            if(j & (1<<i))
+                count++;
+        
+        ans += count * (n-count) * 2;
+    }
+
+    return ans;
+    
+}
+
+
+// ------------------------------------------ O(N^2) ----------------------------
 int is_bit_set(int bitVector,int index)
 {
     int mask = 1<<index;
@@ -24,7 +49,10 @@ int Hamming(int a,int b)
 
     return hamming;
 }
-
+/*
+    Time : O(N^2)
+    Returns an int with sum of all hamming diffirences
+*/
 int HammingSum(vector<int> &A)
 {
     int n = A.size();
@@ -43,6 +71,10 @@ int HammingSum(vector<int> &A)
 
 int main()
 {
-    cout<< "   "<< Hamming(12,2);
+    vector<int> a = {12,2,5};
+    int res =  HammingSum_Efficient(a);
+    cout<< "   "<< res;
+    res = HammingSum(a);
+    cout<< "\n   "<< res;
     return 0;
 }
