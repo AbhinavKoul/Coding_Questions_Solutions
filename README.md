@@ -11,5 +11,5 @@
   
   #### A) KPM Algorithm
           -> Worst Case : O(N)
-          -> [Youtube](https://www.youtube.com/watch?v=V5-7GzOfADQ)
-          -> [GFG](https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/)
+   [Youtube](https://www.youtube.com/watch?v=V5-7GzOfADQ)
+   [GFG](https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/)
