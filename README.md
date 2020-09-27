@@ -4,3 +4,12 @@
 
 ## 1. Sorting Algo  
 ![](Quick_References/Sorting_Complexity.PNG)  
+
+# Important Algorithms
+
+## 1. String Matching
+  
+  #### A) KPM Algorithm
+          -> Worst Case : O(N)
+   [Youtube](https://www.youtube.com/watch?v=V5-7GzOfADQ)
+   [GFG](https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/)
