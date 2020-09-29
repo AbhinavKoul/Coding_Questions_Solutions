@@ -15,7 +15,7 @@ ListNode* addTwoNumbers(ListNode* A, ListNode* B) {
     
     int carry = 0;
     
-    while(currA!= && currB!=nullptr)
+    while(currA!=nullptr && currB!=nullptr)
     {
         
         prevB = currB;
@@ -53,10 +53,13 @@ ListNode* addTwoNumbers(ListNode* A, ListNode* B) {
     // case if a new element needs to be addded
     if(carry!=0){
         
+        struct ListNode* new_node = new ListNode(carry); // using constructor
+        //          OR
+        /*
         struct ListNode* new_node =(struct ListNode*) malloc(sizeof(struct ListNode));
         new_node->val = carry;
         new_node->next = nullptr;
-        
+        */
         prevB->next = new_node;
         
     }
