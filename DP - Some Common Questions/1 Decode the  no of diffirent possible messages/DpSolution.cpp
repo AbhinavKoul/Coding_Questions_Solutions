@@ -4,7 +4,7 @@
 #define v vector
 using namespace std;
 
-int dpSolHelper(const string &str,int i,v<int> &dp)
+int dpSolHelper(const string &str,int i,v<int>& dp)
 {
     //base
     if(i>=str.length())
