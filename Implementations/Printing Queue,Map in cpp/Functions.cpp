@@ -22,3 +22,11 @@ void printQueue(queue<int> q)
 	}
 	cout<<endl;
 }
+
+template<typename K>
+void printVector(vector<K> arr)
+{
+    cout<<endl;
+    for(auto i : arr)
+        cout<<i<<" ";
+}
