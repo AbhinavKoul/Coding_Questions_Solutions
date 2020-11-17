@@ -30,3 +30,9 @@ void printVector(vector<K> arr)
     for(auto i : arr)
         cout<<i<<" ";
 }
+
+template<typename K, typename V>
+void print_pair(std::pair<K,V> const &m)
+{
+	std::cout << "{" << m.first << ": " << m.second << "}\n";
+}
