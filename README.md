@@ -28,6 +28,23 @@
    [Level Order Transversal](https://www.geeksforgeeks.org/level-order-tree-traversal/)
 
 ## 3. Graph  [Code](https://github.com/AbhinavKoul/Coding_Questions_Solutions/blob/b91ac7d86a5f4872668b5f3b49d6eeb925c24b94/Implementations/Graphs/GRAPH(better%20implementation).cpp)
+      
+      -> Unweighted Graph -> Directly use the code given above
+      -> Weighted Graph -> Can use a 
+      
+      1) Constructor     
+      
+      v<int> weights = {0,5,4,3,2,1};
+      struct ListNode 
+      {
+         int val;
+         ListNode *next;     
+         ListNode(int x) : val(weights[x]), next(nullptr) {}
+
+      };
+      
+      2) PAIR
+  [Pair Usage](https://www.geeksforgeeks.org/graph-implementation-using-stl-for-competitive-programming-set-2-weighted-graph/)
   
   #### A) DFS  [Code](https://github.com/AbhinavKoul/Coding_Questions_Solutions/blob/b91ac7d86a5f4872668b5f3b49d6eeb925c24b94/Implementations/Graphs/GRAPH(better%20implementation).cpp#L47)
           -> Worst Case : O(|V|+|E|)  
