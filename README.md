@@ -14,7 +14,17 @@
    [Youtube](https://www.youtube.com/watch?v=V5-7GzOfADQ)
    [GFG](https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/)
 
-## 2. Graph  [Code](https://github.com/AbhinavKoul/Coding_Questions_Solutions/blob/b91ac7d86a5f4872668b5f3b49d6eeb925c24b94/Implementations/Graphs/GRAPH(better%20implementation).cpp)
+## 2. Tree
+        -> If there are N nodes
+             ==> N-1 edges only!
+  #### A) Transveral
+          1. LNR - Inorder
+          2. NLR - Preorder
+          3. LRN - Postorder
+          
+          ==> No need to use DFS here in tree!
+
+## 3. Graph  [Code](https://github.com/AbhinavKoul/Coding_Questions_Solutions/blob/b91ac7d86a5f4872668b5f3b49d6eeb925c24b94/Implementations/Graphs/GRAPH(better%20implementation).cpp)
   
   #### A) DFS  [Code](https://github.com/AbhinavKoul/Coding_Questions_Solutions/blob/b91ac7d86a5f4872668b5f3b49d6eeb925c24b94/Implementations/Graphs/GRAPH(better%20implementation).cpp#L47)
           -> Worst Case : O(|V|+|E|)  
