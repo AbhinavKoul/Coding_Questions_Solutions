@@ -13,5 +13,13 @@
           -> Worst Case : O(N)
    [Youtube](https://www.youtube.com/watch?v=V5-7GzOfADQ)
    [GFG](https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/)
+
+## 2. Graph  
   
+  #### A) DFS  
+          -> Worst Case : O(|V|+|E|)  
+          1. Connected graph  
+          2. There is an edge case for unconnected graph ==> NEED TO CALL DFS FOR EACH NODE!
+   [GFG](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/)  
+    
 # Overloading Output,Input,Equal => LIST vs VECTOR vs Dqueue [link](http://www.yolinux.com/TUTORIALS/LinuxTutorialC++STL.html#LIST)
