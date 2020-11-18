@@ -51,6 +51,16 @@
           1. Connected graph  
           2. There is an edge case for unconnected graph ==> NEED TO run DFS from all unvisited nodes after a initial DFS. 
    [GFG](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/)  
+   
+          -> APPLICATIONS
+          1. For a weighted graph, DFS traversal of the graph produces the minimum spanning tree and all pair shortest path tree
+          2. Detecting cycle in a graph
+          3. Path Finding
+          4. Topological Sorting
+          5. test if a graph is bipartite
+          6. Finding Strongly Connected Components
+          7. Solving puzzles with only one solution
+   [DFS-APPLICATIONS](https://www.geeksforgeeks.org/applications-of-depth-first-search/)
     
   #### A) BFS
    [GFG]()
