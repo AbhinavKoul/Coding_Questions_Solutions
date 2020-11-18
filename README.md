@@ -64,6 +64,7 @@
    3. [Detect Cycles in Directed](https://www.geeksforgeeks.org/detect-cycle-in-a-graph/)
    4. [Detect Cycles in Undirected](https://www.geeksforgeeks.org/detect-cycle-undirected-graph/)
    5. [Strongly Connected Componants using DFS](https://www.geeksforgeeks.org/strongly-connected-components/)
+   6. [BEST - CLSR - Strongly connected comp](https://www.personal.kent.edu/~rmuhamma/Algorithms/MyAlgorithms/GraphAlgor/strongComponent.htm)
      
    5. [QUESTIONS](https://www.geeksforgeeks.org/tag/dfs/)
     
