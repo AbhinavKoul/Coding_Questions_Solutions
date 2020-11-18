@@ -14,12 +14,21 @@
    [Youtube](https://www.youtube.com/watch?v=V5-7GzOfADQ)
    [GFG](https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/)
 
-## 2. Graph  
+## 2. Graph  [Code](https://github.com/AbhinavKoul/Coding_Questions_Solutions/blob/b91ac7d86a5f4872668b5f3b49d6eeb925c24b94/Implementations/Graphs/GRAPH(better%20implementation).cpp)
   
-  #### A) DFS  
+  #### A) DFS  [Code](https://github.com/AbhinavKoul/Coding_Questions_Solutions/blob/b91ac7d86a5f4872668b5f3b49d6eeb925c24b94/Implementations/Graphs/GRAPH(better%20implementation).cpp#L47)
           -> Worst Case : O(|V|+|E|)  
           1. Connected graph  
           2. There is an edge case for unconnected graph ==> NEED TO run DFS from all unvisited nodes after a initial DFS. 
    [GFG](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/)  
     
+  #### A) BFS
+   [GFG]()
+  #### A) DIJKSTRA STL
+   [GFG- Priority Queue](https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-using-priority_queue-stl/)  
+   [GFG-Sets](https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-using-set-in-stl/)  
+  #### A) KRUSKAL STL
+   [GFG](https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-using-stl-in-c/)  
+  #### A) PRISM STL
+   [GFG](https://www.geeksforgeeks.org/prims-algorithm-using-priority_queue-stl/)  
 # Overloading Output,Input,Equal => LIST vs VECTOR vs Dqueue [link](http://www.yolinux.com/TUTORIALS/LinuxTutorialC++STL.html#LIST)
