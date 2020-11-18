@@ -50,7 +50,7 @@
           -> Worst Case : O(|V|+|E|)  
           1. Connected graph  
           2. There is an edge case for unconnected graph ==> NEED TO run DFS from all unvisited nodes after a initial DFS. 
-   [GFG](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/)  
+   1. [GFG](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/)  
    
           -> APPLICATIONS
           1. For a weighted graph, DFS traversal of the graph produces the minimum spanning tree and all pair shortest path tree
@@ -60,10 +60,12 @@
           5. test if a graph is bipartite
           6. Finding Strongly Connected Components
           7. Solving puzzles with only one solution
-   [DFS-APPLICATIONS](https://www.geeksforgeeks.org/applications-of-depth-first-search/)  
-   
+   2. [DFS-APPLICATIONS](https://www.geeksforgeeks.org/applications-of-depth-first-search/)  
+   3. [Detect Cycles in Directed](https://www.geeksforgeeks.org/detect-cycle-in-a-graph/)
+   4. [Detect Cycles in Undirected](https://www.geeksforgeeks.org/detect-cycle-undirected-graph/)
+   5. [Strongly Connected Componants using DFS](https://www.geeksforgeeks.org/strongly-connected-components/)
      
-   [QUESTIONS](https://www.geeksforgeeks.org/tag/dfs/)
+   5. [QUESTIONS](https://www.geeksforgeeks.org/tag/dfs/)
     
   #### A) BFS
    [GFG]()
