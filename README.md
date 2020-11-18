@@ -19,7 +19,7 @@
   #### A) DFS  
           -> Worst Case : O(|V|+|E|)  
           1. Connected graph  
-          2. There is an edge case for unconnected graph ==> NEED TO CALL DFS FOR EACH NODE!
+          2. There is an edge case for unconnected graph ==> NEED TO run DFS from all unvisited nodes after a initial DFS. 
    [GFG](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/)  
     
 # Overloading Output,Input,Equal => LIST vs VECTOR vs Dqueue [link](http://www.yolinux.com/TUTORIALS/LinuxTutorialC++STL.html#LIST)
