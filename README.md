@@ -60,7 +60,10 @@
           5. test if a graph is bipartite
           6. Finding Strongly Connected Components
           7. Solving puzzles with only one solution
-   [DFS-APPLICATIONS](https://www.geeksforgeeks.org/applications-of-depth-first-search/)
+   [DFS-APPLICATIONS](https://www.geeksforgeeks.org/applications-of-depth-first-search/)  
+   
+     
+   [QUESTIONS](https://www.geeksforgeeks.org/tag/dfs/)
     
   #### A) BFS
    [GFG]()
