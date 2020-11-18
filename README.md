@@ -19,10 +19,13 @@
              ==> N-1 edges only!
   #### A) Transveral
           1. LNR - Inorder
-          2. NLR - Preorder
+          2. NLR - Preorder == DFS
           3. LRN - Postorder
+          4. Level Order Transversal == BFS
           
-          ==> No need to use DFS here in tree!
+          ==> No need to use DFS or BFS here in tree!
+   [Tree Transverals](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/)  
+   [Level Order Transversal](https://www.geeksforgeeks.org/level-order-tree-traversal/)
 
 ## 3. Graph  [Code](https://github.com/AbhinavKoul/Coding_Questions_Solutions/blob/b91ac7d86a5f4872668b5f3b49d6eeb925c24b94/Implementations/Graphs/GRAPH(better%20implementation).cpp)
   
