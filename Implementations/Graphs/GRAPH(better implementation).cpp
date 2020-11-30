@@ -48,8 +48,17 @@ class Graph
     {   
         // mark all nodes as non-visited
         vector<bool> visited(N,false);
-        //go through each nodes
+        //go through each nodes connected to V (WHEN GRAPH IS CONNECTED)
         DFSUtil(V,visited);
+
+        /*
+            WHEN GRAPH IS NOT CONNECTED!!!!!!!!!!!!!!1
+        */
+        // Call the recursive helper function to print DFS
+        // traversal starting from all vertices one by one
+        // for (int i = 0; i < V; i++)
+        //     if (visited[i] == false)
+        //         DFSUtil(i, visited);
     }
     // prints all unvisited vertices directly connected to vertex V
     void BFSUtil(int V,vector<bool> &visited)
