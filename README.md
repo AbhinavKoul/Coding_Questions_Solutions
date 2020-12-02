@@ -77,8 +77,16 @@
    3. [Detect Cycles in Directed](https://www.geeksforgeeks.org/detect-cycle-in-a-directed-graph-using-bfs/)
   
   #### B) BIPARTATE GRAPH CHECK
+   ##### -> Approach by observation : 
+            From the property of graphs we can infer that , 
+            1. A graph containing odd number of cycles
+            2. Self loop  is Not Bipartite.
+            
+Therefore if we found any vertex with odd number of edges or a self loop , we can say that it is Not Bipartite.
+                
    1. [DFS Approach](https://www.geeksforgeeks.org/check-if-a-given-graph-is-bipartite-using-dfs/?ref=lbp)
-   2. [BFS Approach](https://www.geeksforgeeks.org/bipartite-graph/)
+   2. [BFS Approach](https://www.geeksforgeeks.org/bipartite-graph/) ---> Approach by OBSERVATION at the END
+   3. [M - Colouring Problem](https://www.geeksforgeeks.org/m-coloring-problem-backtracking-5/)
   #### A) DIJKSTRA STL
    [GFG- Priority Queue](https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-using-priority_queue-stl/)  
    [GFG-Sets](https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-using-set-in-stl/)  
