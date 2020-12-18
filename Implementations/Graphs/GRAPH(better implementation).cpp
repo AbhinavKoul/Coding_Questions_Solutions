@@ -131,7 +131,7 @@ int main()
     g1.add_Edge(2,6);
 
     //g1.print_graph();
-    // g1.DFS(0);
+     g1.DFS(0);
     // cout<<endl;
     // g1.DFS(2);
     // cout<<endl;
