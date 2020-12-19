@@ -25,3 +25,11 @@ ListNode *reverseLinkedList(ListNode *head)
     head->next = nextNode;
     return cur;
 }
+
+struct ListNode* new_node = new ListNode(carry); // using constructor
+        //          OR
+        /*
+        struct ListNode* new_node =(struct ListNode*) malloc(sizeof(struct ListNode));
+        new_node->val = carry;
+        new_node->next = nullptr;
+        */

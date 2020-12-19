@@ -2,7 +2,10 @@
 #include<vector>
 #include<queue>
 using namespace std;
-
+struct Edge
+{
+    int src,dest;
+};
 class Graph
 {   
     public:
@@ -27,6 +30,22 @@ class Graph
             adjList[dest].push_back(src);
         //this has to execute wheather directed or undirected
         adjList[src].push_back(dest);  
+    }
+
+    //constructor if edges given in a list
+    //constructor for directed graph
+    Graph(vector<Edge> const &edges,int nodes)
+    {
+        N = nodes;
+        //resize adjList to no of nodes
+        adjList.resize(N);
+        
+        //add edges to adjacency list
+        for(auto &edge : edges)
+        {
+            //insert
+            add_Edge(edge.src,edge.dest);
+        }
     }
 
     void DFSUtil(int V,vector<bool> &visited)
