@@ -1,6 +1,7 @@
 #include<iostream>
 // #include<bits/stdc++.h>
 #include<vector>
+#include<queue>
 
 #define v vector
 using namespace std;
@@ -25,6 +26,36 @@ v<int> Inorder(node * head,v<int>& res)
 
 }
 
+v<int> LevelOrderTransvsal_helper(node * head,v<int>& res,queue<node*>& Q)
+{
+    Q.push(head);
+
+    while (!Q.empty())
+    {
+        node* src = Q.front();
+        res.push_back(src->data);
+        Q.pop();
+
+        if(src->left!=nullptr)
+            Q.push(src->left);
+        if(src->right!=nullptr)
+            Q.push(src->right);
+
+    }
+
+    return res;
+    
+}
+
+void LevelOrderTransvesal(node*head)
+{
+    queue<node*> Q;
+    v<int> res;
+    res = LevelOrderTransvsal_helper(head,res,Q);
+
+    for(auto i: res)
+        cout<<i<<" ";
+}
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -38,13 +69,15 @@ int main()
     root->left->left = new node(4);
     root->right->left = new node(5);
 
-    v<int> res;
-    res = Inorder(root,res);
+    
+    // v<int> res;
+    // res = Inorder(root,res);
 
     cout<<" fdsfdsds : \n";
+    LevelOrderTransvesal(root);
 
-    for(auto i : res)
-        cout<<i<<" ";
+    // for(auto i : res)
+    //     cout<<i<<" ";
 
     return 0;
 }
