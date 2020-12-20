@@ -1,6 +1,27 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
+// BRUTE FORCE
+int search(vector<int>& nums, int target) {
+    // Time : O(NlogN) ==> can do in n as well
+        
+        int rotated = abs(distance(nums.begin(),min_element(nums.begin(),nums.end())));
+        sort(nums.begin(),nums.end());
+        int n = nums.size();
+        
+        for(int i = 0;i<nums.size();i++)
+        {
+            if(nums[i] == target)
+                return (i + rotated)%n;
+        }
+        
+        return -1;
+        
+}
+
+
+
 //helper fns
 int findPivot(vector<int> A) {
     /*
