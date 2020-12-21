@@ -1,6 +1,6 @@
 #include<vector>
 #include<iostream>
-#include<bits/stdc++.h>
+// #include<bits/stdc++.h>
 
 using namespace std;
 #define v vector
@@ -26,3 +26,9 @@ v<bool>::iterator itr = find(is_present.begin()+1,is_present.end(),false);
             return is_present.size();
         else
             return(abs(distance(itr,is_present.begin())));
+
+
+
+pair<int,int> p1= make_pair(5,4);
+int r,c;
+tie(r,c) = p1; //unpack into 2 variables
