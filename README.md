@@ -96,4 +96,14 @@ Therefore if we found any vertex with odd number of edges or a self loop , we ca
    [GFG](https://www.geeksforgeeks.org/prims-algorithm-using-priority_queue-stl/)  
   #### A) Ford-Fulkerson Algorithm for Maximum Flow Problem
    [GFG](https://www.geeksforgeeks.org/ford-fulkerson-algorithm-for-maximum-flow-problem/)
+  
+  ### Minimum Path Cover on a Directed Acyclic Graph(DAG)
+   [GFG](https://www.geeksforgeeks.org/maximum-bipartite-matching/)
+   #### HOPCRAFT-KARP Algorithm
+   [GFG](https://www.geeksforgeeks.org/hopcroft-karp-algorithm-for-maximum-matching-set-1-introduction/)
+   
+   [example Question](https://www.hackerrank.com/challenges/problem-solving/problem)
+   [Solution_Best](https://www.hackerrank.com/rest/contests/master/challenges/problem-solving/hackers/sushilnath/download_solution)
+   
 # Overloading Output,Input,Equal => LIST vs VECTOR vs Dqueue [link](http://www.yolinux.com/TUTORIALS/LinuxTutorialC++STL.html#LIST)
+
