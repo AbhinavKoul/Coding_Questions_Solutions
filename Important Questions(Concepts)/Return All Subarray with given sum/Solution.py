@@ -10,7 +10,7 @@ def subArraySum(arr, n, s):
     mappingList = list(sorted(mapping))
     
     for i in range(len(mappingList)):
-        search = mappingList[i] - sf
+        search = mappingList[i] - s
         if search in mapping:
             if(i != mapping[search]):
                 result.append(i)
