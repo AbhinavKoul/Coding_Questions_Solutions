@@ -105,5 +105,13 @@ Therefore if we found any vertex with odd number of edges or a self loop , we ca
    [example Question](https://www.hackerrank.com/challenges/problem-solving/problem)
    [Solution_Best](https://www.hackerrank.com/rest/contests/master/challenges/problem-solving/hackers/sushilnath/download_solution)
    
+## 3. Sets
+      Types
+      -> Set                     set<int> s;
+      -> Unordered_Set           unordered_set<int> us;
+      -> multiset                multiset<int> ms;
+      -> UnorderedMultiSet       unordered_multiset<int> ums;
+[DIFFIRENCES](https://www.geeksforgeeks.org/difference-set-multiset-unordered_set-unordered_multiset/)
+
 # Overloading Output,Input,Equal => LIST vs VECTOR vs Dqueue [link](http://www.yolinux.com/TUTORIALS/LinuxTutorialC++STL.html#LIST)
 
