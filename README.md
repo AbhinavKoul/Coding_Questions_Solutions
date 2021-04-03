@@ -113,5 +113,6 @@ Therefore if we found any vertex with odd number of edges or a self loop , we ca
       -> UnorderedMultiSet       unordered_multiset<int> ums;
 [DIFFIRENCES](https://www.geeksforgeeks.org/difference-set-multiset-unordered_set-unordered_multiset/)
 
+# General Approach for all backtracking questions [Link](https://leetcode.com/problems/combination-sum/discuss/16502/A-general-approach-to-backtracking-questions-in-Java-(Subsets-Permutations-Combination-Sum-Palindrome-Partitioning))
 # Overloading Output,Input,Equal => LIST vs VECTOR vs Dqueue [link](http://www.yolinux.com/TUTORIALS/LinuxTutorialC++STL.html#LIST)
 
