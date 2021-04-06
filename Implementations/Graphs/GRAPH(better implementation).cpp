@@ -1,7 +1,9 @@
 #include<iostream>
 #include<vector>
 #include<queue>
+#include<stack>
 using namespace std;
+#define v vector
 struct Edge
 {
     int src,dest;
@@ -79,6 +81,95 @@ class Graph
         //     if (visited[i] == false)
         //         DFSUtil(i, visited);
     }
+
+    // CHECKING FOR CYCLES USING DFS
+    bool isCyclicUtil(int V,v<bool> &visited,v<bool> &recStack)
+    {
+        if(!visited[V])
+        {
+            //mark it as visted and in recStack
+            visited[V] = true;
+            recStack[V] = true;
+            
+            //all next vertices recur like in dfs
+            for(auto i : adjList[V])
+            {
+                if(!visited[i] && isCyclicUtil(i,visited,recStack))
+                    return true;
+                else if(recStack[i])    //if this node already in rec stack, thus there is a back edge
+                    return true;
+            }
+        }
+
+        recStack[V] = false; //remove vertex from recStack
+        
+        return false;
+    }
+    
+    bool isCyclic()
+    {  
+    /*
+        exactly similar to dfs implementation, with an addition of recursion stack to check for cycles
+
+        1. Mark the current node as visited and also mark the index in recursion stack.
+        2. Find all the vertices which are not visited and are adjacent to the current node. 
+           Recursively call the function for those vertices, If the recursive function returns true, return true.
+        3. If the adjacent vertices are already marked in the recursion stack then return true.
+        4. Create a wrapper class, that calls the recursive function for all the vertices and if any function returns true return true. 
+           Else if for all vertices the function returns false return false.
+    
+    */
+        // mark all nodes as non-visited
+        vector<bool> visited(N,false);
+        v<bool> recStack(N,false);
+        
+         // Call the recursive helper function to detect cycle in different
+        // DFS trees
+        for(int i = 0; i < N; i++)
+            if (isCyclicUtil(i, visited, recStack))
+                return true;
+
+        return false;
+    }
+
+    // A recursive function used by topologicalSort
+    void topologicalSortUtil(int V, v<bool> &visited, stack<int>& Stack)
+    {
+        // Mark the current node as visited.
+        visited[V] = true;
+
+        // Recur for all the vertices
+        // adjacent to this vertex      --- DFS ----
+        for (auto i : adjList[V])
+            if (!visited[i])
+                topologicalSortUtil(i, visited, Stack);
+
+        // Push current vertex to stack
+        // which stores result
+        Stack.push(V);
+    }
+
+    // The function to do Topological Sort.
+    // It uses recursive topologicalSortUtil()
+    stack<int> topologicalSort()
+    {/*
+        AGAIN LIKE DFS, BUT STORE DETAILS IN STACK AND PRINT STACK TOP TO BOTTOM
+    */
+        stack<int> Stack;
+
+        v<bool> visited(N,false);
+
+        // Call the recursive helper function
+        // to store Topological
+        // Sort starting from all
+        // vertices one by one
+        for (int i = 0; i < N; i++)
+            if (!visited[i])
+                topologicalSortUtil(i, visited, Stack);
+
+        return Stack;
+    }
+
     // prints all unvisited vertices directly connected to vertex V
     void BFSUtil(int V,vector<bool> &visited)
     {
