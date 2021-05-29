@@ -1,0 +1,33 @@
+1) Intuition
+We check if the right height and the left height are the same or not. If they are the same, that means the tree is a full binary tree and has all the(2^h - 1) nodes, otherwise, we check for the left and the right subtree and return +1 with the result until we find a subtree that is a full binary tree.
+
+2) Implementation
+
+function getNodes(tree) {
+    rightHeight = getRightHeight(tree);
+    leftHeight = getLeftHeight(tree);
+    if rightHeight == leftHeight then return 2 ** rightHeight - 1;
+    else return getNodes(tree.left) + getNodes(tree.right) + 1;
+}
+
+Example #1
+In the example, we check the right and the left height of the tree.
+Here, the left height is 3 and the right height is 2, so it's not a full binary tree, so we recurse to the left and the right subtrees.
+Now, the left subtree is a full binary tree with height 2, so we return (2^2 - 1 = 3) and the right subtree is also a full binary tree, so we return 1. So the final result is (3 + 1 + 1 = 5)(3+1+1=5)
+
+3) Time Complexity
+In the worst case we may recurse till the leaf node, so the the time complexity would be h(h + 1)/2 where h is the height of tree and h = log(n)
+h=log(n). 
+So the time complexity is : (logn)^2) 
+
+4) Space Complexity
+Space complexity of recursive algorithm is proportinal to maximum depth of recursion tree generated, so the space complexity here is \mathcal{O}(h)O(h) where hh is the height of the tree
+
+-----------------------fight with dhuvni----------------------------
+(5 months ago)
+
+The time complexity analysis is incorrect (it is log^2(n) but the explanation to why is wrong)
+It's incorrect because if you did recurse fully you'd need to go over all the nodes, meaning O(n) time (times log(n) to compute the heights)
+The reason it's log(n) is because one of the recursion calls is bound to end immediately.
+Why? because the tree is full, so either the left recursion will be a full tree (and the recursion stops at that level), and if it's not, then that means the right recursion must be a full tree, and will stop at that level.
+Overall, only one recursion call can go as deep as the leaf, so we "lose" half the nodes each time, making an overall log(n) recursion calls, each taking log(n) time to execute, and overall log^2(n) time complexity
