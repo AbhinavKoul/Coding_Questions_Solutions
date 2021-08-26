@@ -37,18 +37,18 @@ void bfs(ll start, string prev_str)
         return;
     string str = prev_str + um[start];
 
-    if(stoll(str) > 1e12)
+    if(str.length() > 10)
         return;
     
-    cout<<" "<<str<<" ";
-    // beautifulNumbers.push_back(stoll(str));
+    // cout<<" "<<str<<" ";
+    beautifulNumbers.push_back(stoll(str));
     while(next_permutation(str.begin(),str.end()))
     {
-        if(stoll(str) > 1e12)
+        if(str.length() > 10)
             break;
 
-        cout<<" "<<str<<" ";
-        // beautifulNumbers.push_back(stoll(str));
+        // cout<<" "<<str<<" ";
+        beautifulNumbers.push_back(stoll(str));
     }
 
     bfs(start+1,str);
@@ -73,9 +73,11 @@ void printVector()
 int main()
 {
     initMap();
-    printMap();
+    // printMap();
 
     findAllBeautiful();
+    sort(beautifulNumbers.begin(),beautifulNumbers.end());
     // printVector();
+    cout<<"\n hello : "<<*lower_bound(beautifulNumbers.begin(),beautifulNumbers.end(),53);
     return 0;
 }
