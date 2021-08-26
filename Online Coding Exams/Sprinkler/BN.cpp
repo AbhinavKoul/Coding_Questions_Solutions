@@ -5,11 +5,12 @@
 #include<unordered_map>
 #include<string>
 #include<algorithm>
+#include<set>
 using namespace std;
 #define v vector
 #define ll long long 
 
-v<ll> beautifulNumbers;
+set<ll> beautifulNumbers;
 unordered_map<int,string> um;
 void initMap()
 {
@@ -41,14 +42,14 @@ void bfs(ll start, string prev_str)
         return;
     
     // cout<<" "<<str<<" ";
-    beautifulNumbers.push_back(stoll(str));
+    beautifulNumbers.insert(stoll(str));
     while(next_permutation(str.begin(),str.end()))
     {
         if(str.length() > 10)
             break;
 
         // cout<<" "<<str<<" ";
-        beautifulNumbers.push_back(stoll(str));
+        beautifulNumbers.insert(stoll(str));
     }
 
     bfs(start+1,str);
@@ -57,7 +58,7 @@ void findAllBeautiful()
 {
     for(int i = 1;i<=9;i++)
     {
-        beautifulNumbers.push_back(stoll(um[i]));
+        beautifulNumbers.insert(stoll(um[i]));
         for(int j = i + 1;j<=9;j++)
             bfs(j,um[i]);
     }
@@ -73,11 +74,19 @@ void printVector()
 int main()
 {
     initMap();
-    // printMap();
 
     findAllBeautiful();
-    sort(beautifulNumbers.begin(),beautifulNumbers.end());
+    // sort(beautifulNumbers.begin(),beautifulNumbers.end());
     // printVector();
-    cout<<"\n hello : "<<*lower_bound(beautifulNumbers.begin(),beautifulNumbers.end(),53);
+    ll test;
+    cin>>test;
+
+    while(test--)
+    {
+        ll val;
+        cin>>val;
+        cout<<*upper_bound(beautifulNumbers.begin(),beautifulNumbers.end(),val)<<"\n";
+    }
+
     return 0;
 }
