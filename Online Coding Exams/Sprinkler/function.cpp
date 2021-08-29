@@ -39,12 +39,12 @@ ll findValueBitwise(v<ll> arr)
                 if(!val2.test(bit))
                     continue;
                 
-                ans += (1<<bit);
+                ans = (ans + (1<<bit)%mod)%mod;
             }
         }
     }
 
-    return ans;
+    return ans%mod;
 }
 
 ll findValue(int n,int arr[]){
