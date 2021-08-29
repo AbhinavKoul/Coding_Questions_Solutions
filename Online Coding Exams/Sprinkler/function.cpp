@@ -22,21 +22,22 @@ ll findValueBitwise(v<ll> arr)
     int n = arr.size();
     ll maximum = *max_element(arr.begin(),arr.end());
     int k = maxSetBit(maximum);
+    v<bitset<20>> bit_arr(n);
+
+    for(int i =0;i<n;i++)
+        bit_arr[i] = bitset<20>(arr[i]);
 
     ll ans = 0;
     for(int bit = 0;bit<=k;bit++)
     {
         for(int i = 0;i<n-1;i++)
         {
-            bitset<20> val1(arr[i]);
-            if(!val1.test(bit))
+            if(!bit_arr[i].test(bit))
                 continue;
             
             for(int j = i+1;j<n;j++)
             {
-                bitset<20> val2(arr[j]);
-
-                if(!val2.test(bit))
+                if(!bit_arr[j].test(bit))
                     continue;
                 
                 ans = (ans + (1<<bit)%mod)%mod;
