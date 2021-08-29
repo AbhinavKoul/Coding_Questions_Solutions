@@ -6,6 +6,85 @@
 using namespace std;
 #define v vector
 
+
+using namespace std;
+
+int findMax(int n,vector<int> &arr,int k,int start,int end,vector<vector<int>>&dp){
+    if(k==0)
+        return 0;
+    if(k>end-start+1)
+        return 0;
+    if(k==1)
+        return arr[start]+arr[end];
+    if(dp[k][start]!=-1)
+        return dp[k][start];
+    if(k==end-start+1){
+        int sum=0;
+        for(int i=start;i<=end;i++)
+            sum+=2*arr[i];
+        return dp[k][start] = sum;
+    }
+    int maxV=INT_MIN;
+    for(int i=start;i<end;i++){
+        int val = findMax(n,arr,k-1,i+1,end,dp);
+        maxV=max(maxV,val+arr[start]+arr[i]);
+        // cout<<maxV<<endl;
+    }
+    return dp[k][start]=maxV;
+}
+
+int findMin(int n,vector<int> &arr,int k,int start,int end,vector<vector<int>>&dp){
+    if(k==0)
+        return 0;
+    if(k==1)
+        return arr[start]+arr[end];
+
+    if(dp[k][start]!=-1)
+        return dp[k][start];
+
+    if(k==end-start+1){
+        int sum=0;
+        for(int i=start;i<=end;i++)
+            sum+=2*arr[i];
+        return dp[k][start]=sum;
+    }
+    int minV=INT_MAX;
+    for(int i=start;i<end;i++){
+        int val = findMin(n,arr,k-1,i+1,end,dp);
+        if(val!=INT_MAX)
+          minV=min(minV,val+arr[start]+arr[i]);
+    }
+    // cout<<start<<" "<<end<<" "<<k<<" "<<minV<<endl;
+    return dp[k][start]=minV;
+}
+
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n,k;
+        cin>>n>>k;
+        vector<int> arr(n);
+        for(int i=0;i<n;i++)
+            cin>>arr[i];
+        vector<vector<int>> dp(k+1,vector<int>(n,-1));
+        int maxV = findMax(n,arr,k,0,n-1,dp);
+        
+        for(int i=0;i<k+1;i++){
+            for(int j=0;j<n;j++){
+                dp[i][j]=-1;
+            }
+        }
+        int minV = findMin(n,arr,k,0,n-1,dp);
+        cout<<maxV - minV;
+    }
+    
+    return 0;
+}
+
+// ----------------------------------------------------------------------------------------------------------------------- //
 int maxCandies(const v<int> &arr, int k, int start,int end)
 {
     //base
