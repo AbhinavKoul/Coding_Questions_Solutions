@@ -3,13 +3,14 @@
 #include<queue>
 #include<stack>
 #include<unordered_map>
+#include<climits>
 using namespace std;
 #define v vector
 
 
 using namespace std;
 
-int findMax(int n,vector<int> &arr,int k,int start,int end,vector<vector<int>>&dp){
+int findMax(int n,vector<int> &arr,int k,int start,int end,v<v<int>>&dp){
     if(k==0)
         return 0;
     if(k>end-start+1)
@@ -69,7 +70,6 @@ int main()
         vector<int> arr(n);
         for(int i=0;i<n;i++)
             cin>>arr[i];
-        vector<vector<int>> dp(k+1,vector<int>(n,-1));
         int maxV = findMax(n,arr,k,0,n-1,dp);
         
         for(int i=0;i<k+1;i++){
