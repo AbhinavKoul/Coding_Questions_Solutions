@@ -97,15 +97,6 @@ bool unLock(naryTree* node, int userId) {
 	}
 	
 	return false;
-
-
-	// node->isLocked = false;
-	// node->lockedByUserId = -1;
-	// while(tempNode != NULL) {
-	// 	tempNode->isLockable = true;
-	// 	tempNode = tempNode->parent;
-	// }
-	// return true;	
 }
 
 // upgrade --> use dfs and check for UID!
@@ -123,7 +114,7 @@ bool upgradeLock(naryTree* node, int userId) {
 	queue<naryTree*> Q;
 
 	Q.push(node);
-
+	v<naryTree*> unlockCandidates;
 	while(!Q.empty())
 	{
 		naryTree* currChild = Q.front(); Q.pop();
@@ -131,12 +122,7 @@ bool upgradeLock(naryTree* node, int userId) {
 		{
 			if(currChild->lockedByUserId == userId)
 			{
-				doneUnlocking = unLock(currChild, userId);
-				if(doneUnlocking == false) 
-				{
-					flag = false;	
-					break;
-				}
+				unlockCandidates.push_back(currChild);
 			}
 			else
 			{
@@ -151,10 +137,26 @@ bool upgradeLock(naryTree* node, int userId) {
 			Q.push(currChild->children[i]);
 		}
 	}
-	
-	if(flag) {
+
+	if(flag)
+	{
+		for(auto cur : unlockCandidates)
+		{
+			doneUnlocking = unLock(cur, userId);
+			if(doneUnlocking == false) 
+			{
+				flag = false;	
+				break;
+			}
+		}
+
 		doneLocking = Lock(node, userId);
 	}
+	
+	
+	// if(flag) {
+		
+	// }
 
 	if(doneLocking) return true;
 	return false;
