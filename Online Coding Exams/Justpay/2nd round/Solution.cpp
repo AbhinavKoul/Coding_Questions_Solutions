@@ -48,6 +48,8 @@ bool Lock(naryTree* node, int userId) {
 
 	naryTree* tempNode = node;
 	bool flag = false;
+	
+	// check for ancestors if the
 	while(tempNode != NULL) {
 		if(tempNode->isLocked == true) {
 			flag = true;
@@ -59,17 +61,18 @@ bool Lock(naryTree* node, int userId) {
 	if(flag) {
 		return false;
 	}
-	else{
+	else{	
 		node->isLocked = true;
 		node->lockedByUserId = userId;
 		tempNode = node->parent;
-		if(tempNode != NULL) tempNode->lockedChildren = tempNode->lockedChildren + 1;
+
 		while(tempNode != NULL) {
+			tempNode->lockedChildren = tempNode->lockedChildren + 1;
 			tempNode->isLockable = false;
 			tempNode = tempNode->parent;
 		}
 	}
-	return true;
+	return true;	// use bfs and make all children isLockable falsae as its ancestor is now locked!
 }
 
 bool unLock(naryTree* node, int userId) {
@@ -80,49 +83,75 @@ bool unLock(naryTree* node, int userId) {
 	naryTree* tempNode = node->parent;
 	if(node->lockedByUserId == userId && node->lockedByUserId != -1) {
 		node->isLocked = false;
-		tempNode->lockedChildren = tempNode->lockedChildren - 1;
+		
 		node->lockedByUserId = -1;
-		while(tempNode != NULL && tempNode->lockedChildren == 0) {
-			tempNode->isLockable = true;
+		while(tempNode != NULL) {
+			tempNode->lockedChildren = tempNode->lockedChildren - 1;
+			
+			if(tempNode->lockedChildren == 0)
+				tempNode->isLockable = true;
+			
 			tempNode = tempNode->parent;
 		}
 		return true;
 	}
-	else {
-		return false;
-	}
+	
+	return false;
 
-	node->isLocked = false;
-	node->lockedByUserId = -1;
-	while(tempNode != NULL) {
-		tempNode->isLockable = true;
-		tempNode = tempNode->parent;
-	}
-	return true;	
+
+	// node->isLocked = false;
+	// node->lockedByUserId = -1;
+	// while(tempNode != NULL) {
+	// 	tempNode->isLockable = true;
+	// 	tempNode = tempNode->parent;
+	// }
+	// return true;	
 }
 
+// upgrade --> use dfs and check for UID!
+
 bool upgradeLock(naryTree* node, int userId) {
-	if(node->isLockable == true) {
+	if(node->isLockable == true) {	//no decendant is locked!
 		return false;
-	}
-
-	naryTree* tempNode = node;
-	int childrenSize = tempNode->children.size();
-
+	}	
+	
 	bool flag = true;
 	bool doneLocking = false;
 	bool doneUnlocking = false;
 	int count = 0;
 
-	for(int i=0; i<childrenSize; i++) {
-		naryTree* currChild = tempNode->children[i];
-		if(currChild->isLocked == true) {
-			doneUnlocking = unLock(currChild, userId);
-			if(doneLocking) count++;
-			if(doneUnlocking == false) flag = false;
+	queue<naryTree*> Q;
+
+	Q.push(node);
+
+	while(!Q.empty())
+	{
+		naryTree* currChild = Q.front(); Q.pop();
+		if(currChild->isLocked == true) 
+		{
+			if(currChild->lockedByUserId == userId)
+			{
+				doneUnlocking = unLock(currChild, userId);
+				if(doneUnlocking == false) 
+				{
+					flag = false;	
+					break;
+				}
+			}
+			else
+			{
+				flag = false;	
+				break;
+			}		
+		}
+
+		int childrenSize = currChild->children.size();
+		for(int i=0; i<childrenSize; i++) 
+		{
+			Q.push(currChild->children[i]);
 		}
 	}
-
+	
 	if(flag) {
 		doneLocking = Lock(node, userId);
 	}
