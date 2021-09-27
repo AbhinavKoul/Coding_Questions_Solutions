@@ -8,17 +8,17 @@
 #define v vector
 using namespace std;
 
-class naryTree {
+class Tree {
 	public:
 		int value;
 		bool isLocked;
 		bool isLockable;
 		int lockedByUserId;
 		int lockedChildren;
-		naryTree* parent;
-		vector<naryTree*> children;
+		Tree* parent;
+		vector<Tree*> children;
 
-		naryTree(int val) {
+		Tree(int val) {
 			isLocked = false;
 			isLockable = true;
 			value = val;
@@ -27,7 +27,7 @@ class naryTree {
 			lockedByUserId = -1;
 		}
 
-		naryTree(naryTree* parent, int val) {
+		Tree(Tree* parent, int val) {
 			isLocked = false;
 			isLockable = true;
 			value = val;
@@ -37,16 +37,16 @@ class naryTree {
 		}
 };
 
-bool isLocked(naryTree* node) {
+bool isLocked(Tree* node) {
 	return node->isLocked;
 }
 
-bool Lock(naryTree* node, int userId) {
+bool Lock(Tree* node, int userId) {
 	if(node->isLockable == false) {
 		return false;
 	}
 
-	naryTree* tempNode = node;
+	Tree* tempNode = node;
 	bool flag = false;
 	
 	// check for ancestors if the
@@ -75,12 +75,12 @@ bool Lock(naryTree* node, int userId) {
 	return true;	// use bfs and make all children isLockable falsae as its ancestor is now locked!
 }
 
-bool unLock(naryTree* node, int userId) {
+bool unLock(Tree* node, int userId) {
 	if(node->isLocked == false) {
 		return false;
 	}
 
-	naryTree* tempNode = node->parent;
+	Tree* tempNode = node->parent;
 	if(node->lockedByUserId == userId && node->lockedByUserId != -1) {
 		node->isLocked = false;
 		
@@ -101,7 +101,7 @@ bool unLock(naryTree* node, int userId) {
 
 // upgrade --> use dfs and check for UID!
 
-bool upgradeLock(naryTree* node, int userId) {
+bool upgradeLock(Tree* node, int userId) {
 	if(node->isLockable == true) {	//no decendant is locked!
 		return false;
 	}	
@@ -111,13 +111,13 @@ bool upgradeLock(naryTree* node, int userId) {
 	bool doneUnlocking = false;
 	int count = 0;
 
-	queue<naryTree*> Q;
+	queue<Tree*> Q;
 
 	Q.push(node);
-	v<naryTree*> unlockCandidates;
+	v<Tree*> unlockCandidates;
 	while(!Q.empty())
 	{
-		naryTree* currChild = Q.front(); Q.pop();
+		Tree* currChild = Q.front(); Q.pop();
 		if(currChild->isLocked == true) 
 		{
 			if(currChild->lockedByUserId == userId)
@@ -163,34 +163,41 @@ bool upgradeLock(naryTree* node, int userId) {
 }
 
 int main() {
-	int n,c,q;
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+	unsigned int n,c,q;
 	cin>>n>>c>>q;
 
-	vector<string> places;
-	unordered_map<string, int> placeToIndex;
-	unordered_map<int, naryTree*> indexToNodeMap;
-	queue<naryTree*> que;
+	v<string> places;
+	unordered_map<string, int> placeIndexMapping;
+	unordered_map<int, Tree*> indexNodeMapping;
+	queue<Tree*> Q;
 
-	for(int i=0; i<n; i++){
+	for(int i=0; i<n; i++)
+	{
 		string temp;
 		cin>>temp;
-		placeToIndex[temp] = i;
+
+		placeIndexMapping[temp] = i;
 		places.push_back(temp);
 	}
 
-	naryTree* root = new naryTree(0);
-	indexToNodeMap[0] = root;
-	que.push(root);
+	Tree* root = new Tree(0);
+	indexNodeMapping[0] = root;
+	Q.push(root);
 
-	for(int i = 1; i < n;) {
-		naryTree* currParent = que.front();
-		que.pop();
+	for(int i = 1; i < n;) 
+	{
+		Tree* currParent = Q.front();
+		Q.pop();
 
 		for(int j=0; j<c; j++){
-			naryTree* tempNode = new naryTree(currParent, i);
-			que.push(tempNode);
+			Tree* tempNode = new Tree(currParent, i);
+			Q.push(tempNode);
 			currParent->children.push_back(tempNode);
-			indexToNodeMap[i] = tempNode;
+			indexNodeMapping[i] = tempNode;
 			i++;
 		}
 	}
@@ -203,28 +210,28 @@ int main() {
 		cin>>command>>placeName>>userId;
 
 		if(command == 1) {
-			int index = placeToIndex[placeName];
-			naryTree* node = indexToNodeMap[index];
+			int index = placeIndexMapping[placeName];
+			Tree* node = indexNodeMapping[index];
 			bool ans = Lock(node, userId);
 			result.push_back(ans);
 		}
 		else if(command == 2) {
-			int index = placeToIndex[placeName];
-			naryTree* node = indexToNodeMap[index];
+			int index = placeIndexMapping[placeName];
+			Tree* node = indexNodeMapping[index];
 			bool ans = unLock(node, userId);
 			result.push_back(ans);
 		}
 		else if(command == 3) {
-			int index = placeToIndex[placeName];
-			naryTree* node = indexToNodeMap[index];
+			int index = placeIndexMapping[placeName];
+			Tree* node = indexNodeMapping[index];
 			bool ans = upgradeLock(node, userId);
 			result.push_back(ans);
 		}
 	}
 
 	for(int i=0; i<result.size(); i++) {
-		if(result[i] == 1) cout<<"true"<<endl;
-		else if(result[i] == 0) cout<<"false"<<endl;
+		if(result[i] == 1) cout<<"true\n";
+		else if(result[i] == 0) cout<<"false\n";
 	}
 
 	return 0;
