@@ -1,7 +1,7 @@
 #include<queue>
 #include<iostream>
 #include<vector>
-#include<bits/stdc++.h>
+// #include<bits/stdc++.h>
 
 using namespace std;
 #define v vector
@@ -27,7 +27,7 @@ void bfs(int x,int start,v<int> &res)
 
         // 1. 0 at tree (can only increse once)
         if(last_digit = 0)
-            Q.push(scr*10 + 1);
+            Q.push(src*10 + 1);
         else if(last_digit == 9)   // 2. 9 at tree (can decrease once)
             Q.push(src*10 + 8);
         else    // 3. normal ( both less and plus)
@@ -42,7 +42,7 @@ void bfs(int x,int start,v<int> &res)
 void jumpingNumbers(int x)
 {
     v<int> res;
-    for(int i = 0;i<=9 && i<=x;i++)
+    for(int i = 1;i<=9 && i<=x;i++)
         bfs(x,i,res);
     
     sort(res.begin(),res.end())
