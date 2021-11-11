@@ -26,7 +26,7 @@ bool isCycle(int v, vector<bool> &visited, vector<bool>&recStack, int n, vector<
         else if(recStack[i]){
 
             int flag=0;
-            for(int i=1;i<recStack.size();i++)
+            for(int i=1;i<n;i++)
             {
                 if(recStack[i]==false)
                 {
@@ -52,7 +52,7 @@ bool solution(vector<int> &A, vector<int> &B) {
 
     int n=A.size();
 
-    vector<vector<int>> adj(n+1,vector<int>(n+1));
+    vector<vector<int>> adj(n+1);
 
     for(int i=0;i<n;i++)
     {
@@ -63,17 +63,19 @@ bool solution(vector<int> &A, vector<int> &B) {
     vector<bool> visited(n+1,false);
     vector<bool> recStack(n+1,false);
 
-    if(isCycle(1,visited, recStack,n,adj))
-    {
-        return true;
-    }
+    // for(int i = 1;i<=n;i++)
+    // {
+        if(isCycle(4,visited, recStack,n,adj))
+            return true;
+    // }
+    
 
     return false;
 
 }
 int main()
 {
-    vector<int> arr = {3,1,2};
-    vector<int> B = {2,3,1};
+    vector<int> arr = {1,2,3,4,2};
+    vector<int> B = {2,4,1,3,3};
     cout<<"heloo : "<<solution(arr,B);
 }
