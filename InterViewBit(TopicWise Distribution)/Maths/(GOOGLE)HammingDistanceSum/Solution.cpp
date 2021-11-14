@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<bitset>
 using namespace std;
 /*
     Time : O(N)
@@ -35,6 +36,23 @@ int is_bit_set(int bitVector,int index)
         return 1;
     
 }
+//---using bitVector
+int hammingHelper(int a,int b)
+{
+    bitset<32> a1(a);
+    bitset<32> b1(b);
+    int hamming = 0;
+    for(int i = 0;i<32;i++)
+    {
+        int check = a1.test(i)^b1.test(i);
+        if(check)
+            hamming++;
+        else
+            continue;
+    }
+
+    return hamming;
+}
 int Hamming(int a,int b)
 {
     int hamming = 0;
@@ -62,7 +80,7 @@ int HammingSum(vector<int> &A)
     
     for(int i =0;i<n-1;i++)
         for(int j = i+1 ;j<n;j++)
-            hamming_sum += Hamming(A[i],A[j]);
+            hamming_sum += hammingHelper(A[i],A[j]);
     
     hamming_sum *= 2;
     return hamming_sum;
@@ -72,9 +90,9 @@ int HammingSum(vector<int> &A)
 int main()
 {
     vector<int> a = {12,2,5};
-    int res =  HammingSum_Efficient(a);
-    cout<< "   "<< res;
-    res = HammingSum(a);
+    // int res =  HammingSum_Efficient(a);
+    // cout<< "   "<< res;
+    int res = HammingSum(a);
     cout<< "\n   "<< res;
     return 0;
 }
