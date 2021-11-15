@@ -53,7 +53,7 @@ ListNode* addTwoNumbers(ListNode* A, ListNode* B) {
     // case if a new element needs to be addded
     if(carry!=0){
         
-        struct ListNode* new_node = new ListNode(carry); // using constructor
+        ListNode* new_node = new ListNode(carry); // using constructor
         //          OR
         /*
         struct ListNode* new_node =(struct ListNode*) malloc(sizeof(struct ListNode));
