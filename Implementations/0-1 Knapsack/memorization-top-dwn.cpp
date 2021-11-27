@@ -10,8 +10,6 @@
 #define ll long long int
 using namespace std;
 #define v vector
-#define v vector
-#define v vector
 int knapHelper(const v<int> &val,const v<int> &wt,int i,int j,v<v<int>> &dp)
 {
     
