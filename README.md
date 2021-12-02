@@ -1,4 +1,6 @@
 [Common Interview Questions](https://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/?ref=rp)
+# Implementations of some basic data structurs
+1. [HashMap](https://leetcode.com/problems/design-hashmap/discuss/1097755/JS-Python-Java-C%2B%2B-or-(Updated)-Hash-and-Array-Solutions-w-Explanation)
 # Cpp tricks
 1. [Range fn in Cpp inspired from Python](http://shishtpal.blogspot.com/2015/01/range-function-in-c-inspired-from-python.html#:~:text=range()%20function%20in%20C%2B%2B%20%3A%20Inspired%20from%20Python,-%23%20What%20is%20range&text=%23%20A%20sequence%20of%20numbers%20from,\)%2C%20and%20optional%20step%20parameter.&text=%23%20You%20are%20not%20limited%20to,float%20(%20*%20)%20data%20type.)
 2. [StringStream Applications](https://www.geeksforgeeks.org/stringstream-c-applications/)
