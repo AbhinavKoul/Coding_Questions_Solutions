@@ -80,8 +80,9 @@ int rangeSum(const v<int> &bit,int left,int right)
 
     return sum(bit,right) - sum(bit,left - 1);  //cause we need answer inclusive range
 }
-void update_bit(const v<int> &arr,v<int>&bit,int idx,int val,const int n)
+void update_bit(v<int>&bit,int idx,int val)
 {
+    int n = bit.size();
     while(idx<n)
     {
         bit[idx] += val;
@@ -101,7 +102,7 @@ void update(v<int> &arr,v<int>&bit,int pos,int newVal)
 
     int diff = newVal - arr[pos];
     arr[pos] = newVal;
-    update_bit(arr,bit,pos,diff,n);   
+    update_bit(bit,pos,diff);   
 }
 v<int> builtTree(const v<int>&arr)
 {
@@ -111,7 +112,7 @@ v<int> builtTree(const v<int>&arr)
     //1 based indexing
     for(int i = 1;i<n;i++)
     {
-        update_bit(arr,bit,i,arr[i],n);
+        update_bit(bit,i,arr[i]);
     }
 
     return bit;
