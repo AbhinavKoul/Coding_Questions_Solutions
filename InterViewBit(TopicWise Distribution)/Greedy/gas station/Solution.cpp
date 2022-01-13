@@ -23,7 +23,7 @@ class Solution {
                 sumGas += gas[i];
                 sumCost += cost[i];
                 tank += gas[i] - cost[i];
-                if (tank < 0) {
+                if (tank < 0) { //not possible from 0 to i
                     start = i + 1;
                     tank = 0;
                 }
