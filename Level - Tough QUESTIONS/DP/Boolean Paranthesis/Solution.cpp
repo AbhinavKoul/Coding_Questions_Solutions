@@ -2,6 +2,8 @@
 
 //Explanation --> https://www.youtube.com/watch?v=JbRsM2X2_pg
 
+// Similar to min Palindrome Cuts --> https://www.youtube.com/watch?v=qmTtAbOTqcg
+
 #include<iostream>
 #include<vector>
 #include<queue>

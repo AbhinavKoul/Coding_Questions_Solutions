@@ -20,6 +20,19 @@ for(int g = 0;g<n;g++)
                 dp[i][j] = dp[i+1][j-1] + 2;    //middle ope + 2
             else
                 dp[i][j] = max(dp[i][j-1],dp[i+1][j]);
+
+
+
+            ------------------------ ONE MORE --------------------------- 
+            1. Matrix Chain Multlipication
+            2. Min Cut Palindrome
+            3. Boolean Paranthesis
+            
+            for(int k = i;k<j;k++)
+            {
+                int left = dp[i][k];
+                int right = dp[k+1][j];
+            }
         }
     }
 }
