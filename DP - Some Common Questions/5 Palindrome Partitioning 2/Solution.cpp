@@ -9,7 +9,7 @@
 #define endl "\n"
 #define pb push_back
 #define mod 4294967296
-
+//https://www.youtube.com/watch?v=qmTtAbOTqcg
 using namespace std;
 
 #define v vector
