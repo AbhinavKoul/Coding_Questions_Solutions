@@ -71,6 +71,18 @@ int minCut(string A) {
 
 }
 // Naive MCM Solution O(N3) Approach
+/*
+why we should have one more matrix that keeps track of palindrome;
+
+test case
+"c ababa bcb c"
+
+now this result wont be 1(answer of middle) cause it wont make a plaindrome
+
+rather it would be 1 + 2(cuts)
+
+--> thus only for palindrome we can copy middle element cuts, for all others we need to solve
+*/
 int Solution::minCut(string A) {
     int n = A.size();
     
