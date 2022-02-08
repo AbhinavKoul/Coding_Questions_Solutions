@@ -133,3 +133,62 @@ vector<vector<int>> combine(int n, int k) {
     
     return result;
 }
+
+//4. Subsets with duplicates solution
+void recHelper(int idx,const v<int> &nums, v<int> &temp, v<v<int>> &result)
+{
+    //base
+    result.push_back(temp);
+    
+    //go for children
+    for(int i = idx;i<nums.size();i++)
+    {
+        if(i > idx && nums[i] == nums[i-1]) //skip
+            continue;
+        
+        temp.push_back(nums[i]);
+        recHelper(i+1,nums,temp,result);
+        temp.pop_back();
+    }
+}
+vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+    v<v<int>> result;
+    v<int> temp;
+    sort(nums.begin(),nums.end());
+    recHelper(0,nums,temp,result);
+    
+    return result;
+}
+
+//5. Permutations with duplicates
+ void recHelper(const v<int> &nums, v<bool> &recStack, v<int> &temp, v<v<int>> &result)
+{
+    //base
+    if(temp.size() == nums.size())
+    {
+        result.push_back(temp);
+        return;
+    }
+    
+    for(int i = 0;i<nums.size();i++)
+    {
+        if(recStack[i] || (i > 0 && nums[i] == nums[i-1] && !recStack[i - 1])) //<----- Sort is needed for this!!
+            continue;
+        
+        temp.push_back(nums[i]);
+        recStack[i] = true;
+        recHelper(nums,recStack,temp,result);
+        temp.pop_back();
+        recStack[i] = false;
+        
+    }
+}
+vector<vector<int>> permuteUnique(vector<int>& nums) {
+    v<v<int>> result;
+    v<int> temp;
+    v<bool> recStack(nums.size(),false);
+    sort(nums.begin(),nums.end());
+    recHelper(nums,recStack,temp,result);
+    
+    return result;
+}
