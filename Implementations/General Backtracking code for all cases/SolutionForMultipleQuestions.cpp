@@ -192,3 +192,67 @@ vector<vector<int>> permuteUnique(vector<int>& nums) {
     
     return result;
 }
+//6. Combinations Sum - 1 (unique array)
+#define v vector
+class Solution {
+public:
+    void recHelper(const v<int> &arr,int idx,int target,v<int> &temp, v<v<int>> &result)
+    {
+        //base
+        if(target == 0)
+        {
+            result.push_back(temp);
+            return;
+        }
+        
+        for(int i = idx;i<arr.size();i++)
+        {
+            if(arr[i] > target)
+                continue;
+            
+            temp.push_back(arr[i]);
+            recHelper(arr,i,target - arr[i],temp,result);
+            temp.pop_back();
+        }
+    }
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+       v<v<int>> result;
+        v<int> temp;
+        
+        recHelper(candidates,0,target,temp,result);
+        
+        return result;
+    }
+};
+//7. Combinatiosn Sum 2 - duplicates
+class Solution {
+public:
+    #define v vector
+    void recHelper(const v<int>& arr,int idx,int target, v<int> &temp, v<v<int>> &result)
+    {
+        if(target == 0)
+        {
+            result.push_back(temp);
+            return;
+        }
+
+        for(int i = idx;i<arr.size();i++)
+        {
+            if(arr[i] > target || i>idx && arr[i] == arr[i-1])
+                continue;
+
+            temp.push_back(arr[i]);
+            recHelper(arr,i+1,target - arr[i],temp,result);
+            temp.pop_back();
+        }
+    }
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        v<v<int>> result;
+        v<int> temp;
+        //skip duplicates
+        sort(candidates.begin(),candidates.end());
+        recHelper(candidates,0,target,temp,result);
+        
+        return result;
+    }
+};
