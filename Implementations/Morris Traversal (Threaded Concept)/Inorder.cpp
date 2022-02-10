@@ -46,14 +46,14 @@ public:
                 {
                     //establish connection to cur
                     prev->right = cur;
-                    cur = cur->left; 
+                    cur = cur->left;    //<-- since left tree has made connection, we need to go and solve the left tree
                 }
                 else 
                 {
                     //remove connection from cur
                     prev->right = NULL; 
                     inorder.push_back(cur->val);    //push   
-                    cur = cur->right;               //goto right
+                    cur = cur->right;               //goto right now, as left tree is already been solved
                 }
             }
         }
